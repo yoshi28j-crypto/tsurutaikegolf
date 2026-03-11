@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>堺|ゴルフ練習場－鶴田池ゴルフセンター</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;700&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-dark:   #0d2b1a;
+      --green-mid:    #1a4a2e;
+      --green-light:  #2a6b44;
+      --gold:         #c9a84c;
+      --gold-light:   #e8cb7a;
+      --gold-shine:   #f5e49a;
+      --white:        #f5f5f0;
+      --white-dim:    rgba(245,245,240,0.85);
+      --nav-bg:       #0a1f12;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--green-dark);
+      color: var(--white);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    /* ========== HEADER ========== */
+    header {
+      background: var(--nav-bg);
+      border-bottom: 2px solid var(--gold);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.6);
+    }
+
+    .header-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      line-height: 1.3;
+    }
+    .header-logo span {
+      display: block;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.75rem;
+      color: var(--gold-light);
+      letter-spacing: 0.15em;
+    }
+
+    .header-tel {
+      color: var(--gold-light);
+      font-size: 0.85rem;
+      text-align: right;
+    }
+    .header-tel strong {
+      display: block;
+      font-size: 1.3rem;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+    }
+
+    /* ========== NAV ========== */
+    nav {
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--green-light);
+      padding: 0 16px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: center;
+      padding: 8px 0;
+    }
+    nav ul li a {
+      display: inline-block;
+      background: #000;
+      color: var(--gold);
+      text-decoration: none;
+      padding: 7px 18px;
+      font-size: 0.88rem;
+      letter-spacing: 0.1em;
+      font-family: 'Noto Serif JP', serif;
+      border: 1px solid var(--gold);
+      transition: background 0.2s, color 0.2s;
+    }
+    nav ul li a:hover:not(.disabled),
+    nav ul li a.active {
+      background: var(--gold);
+      color: #000;
+    }
+    nav ul li a.disabled {
+      color: rgba(201,168,76,0.4);
+      border-color: rgba(201,168,76,0.2);
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    /* ========== HERO BANNER ========== */
+    .hero {
+      background:
+        linear-gradient(160deg, rgba(10,31,18,0.92) 0%, rgba(13,43,26,0.7) 60%, rgba(0,0,0,0.85) 100%),
+        url('https://static.wixstatic.com/media/a3c153_56669e38ce904a728a6246879d546efe~mv2.jpg') center/cover no-repeat;
+      min-height: 460px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0,0,0,0.04) 3px,
+        rgba(0,0,0,0.04) 4px
+      );
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: #0a1f12;
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      padding: 5px 20px;
+      margin-bottom: 20px;
+      clip-path: polygon(8px 0%, calc(100% - 8px) 0%, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0% 50%);
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      color: var(--gold-shine);
+      font-weight: 900;
+      line-height: 1.4;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+      margin-bottom: 14px;
+    }
+
+    .hero-sub {
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      color: var(--white-dim);
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+
+    .hero-year {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      color: transparent;
+      -webkit-text-stroke: 2px var(--gold);
+      opacity: 0.25;
+      position: absolute;
+      bottom: -10px;
+      right: 20px;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* ========== RENEWAL ANNOUNCEMENT (メイン告知) ========== */
+    .renewal-announce {
+      background: linear-gradient(135deg, #0a2a18 0%, #0d3520 50%, #0a2a18 100%);
+      border: 2px solid var(--gold);
+      border-radius: 4px;
+      margin: 32px auto;
+      max-width: 900px;
+      padding: 40px 36px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 0 40px rgba(201,168,76,0.2), inset 0 0 60px rgba(0,0,0,0.3);
+    }
+    .renewal-announce::before,
+    .renewal-announce::after {
+      content: '✦';
+      color: var(--gold);
+      position: absolute;
+      font-size: 1.2rem;
+    }
+    .renewal-announce::before { top: 14px; left: 20px; }
+    .renewal-announce::after  { bottom: 14px; right: 20px; }
+
+    .renewal-announce .label {
+      display: inline-block;
+      background: var(--gold);
+      color: #0a1a0d;
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      padding: 4px 24px;
+      margin-bottom: 20px;
+    }
+    .renewal-announce h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      color: var(--gold-shine);
+      font-weight: 900;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .renewal-announce .year-tag {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      color: var(--gold);
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      line-height: 1;
+      display: block;
+      margin: 8px 0 16px;
+      text-shadow: 0 0 30px rgba(201,168,76,0.5);
+    }
+    .renewal-announce p {
+      color: var(--white-dim);
+      font-size: 0.95rem;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.9;
+    }
+
+    /* ========== 黒鶴 (最強調) ========== */
+    .kurotsu-section {
+      background: linear-gradient(135deg, #071d0e, #0d2b1a, #071d0e);
+      border: 3px solid var(--gold);
+      border-radius: 4px;
+      margin: 0 auto 32px;
+      max-width: 900px;
+      padding: 0;
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(201,168,76,0.25);
+      position: relative;
+    }
+
+    .kurotsu-header {
+      background: var(--gold);
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .kurotsu-header .now-open {
+      background: #0a1f12;
+      color: var(--gold);
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      padding: 4px 12px;
+      border: 1px solid var(--gold);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+    .kurotsu-header h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.1rem, 3vw, 1.7rem);
+      color: #0a1f12;
+      font-weight: 900;
+      line-height: 1.3;
+    }
+
+    .kurotsu-body {
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    @media (max-width: 640px) {
+      .kurotsu-body { grid-template-columns: 1fr; }
+    }
+
+    .kurotsu-desc {
+      color: var(--white);
+    }
+    .kurotsu-desc p {
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      line-height: 1.9;
+    }
+    .kurotsu-desc .tel-kurotsu {
+      display: inline-block;
+      background: #000;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 10px 20px;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      margin-top: 8px;
+    }
+    .kurotsu-desc .tel-kurotsu strong {
+      display: block;
+      font-size: 1.4rem;
+      color: var(--gold-shine);
+    }
+
+    .kurotsu-price {
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(201,168,76,0.4);
+      border-radius: 2px;
+      padding: 20px;
+    }
+    .kurotsu-price h3 {
+      font-family: 'Noto Serif JP', serif;
+      color: var(--gold);
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(201,168,76,0.3);
+      padding-bottom: 8px;
+    }
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      font-size: 0.9rem;
+    }
+    .price-row .label { color: var(--white-dim); }
+    .price-row .amount {
+      color: var(--gold-light);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .price-note {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: rgba(245,245,240,0.55);
+      line-height: 1.7;
+    }
+    .open-hours {
+      margin-top: 12px;
+      background: rgba(201,168,76,0.1);
+      border-left: 3px solid var(--gold);
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      color: var(--white-dim);
+    }
+
+    /* ========== SECTION WRAPPER ========== */
+    .section-wrapper {
+      max-width: 900px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.2rem;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      border-left: 4px solid var(--gold);
+      padding-left: 14px;
+      margin-bottom: 20px;
+    }
+
+    /* ========== CLOSURE NOTICE ========== */
+    .closure-notice {
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(201,168,76,0.35);
+      border-radius: 2px;
+      padding: 28px 30px;
+    }
+    .closure-notice p {
+      font-size: 0.92rem;
+      color: var(--white-dim);
+      line-height: 2;
+      margin-bottom: 12px;
+    }
+    .closure-notice .date-label {
+      display: inline-block;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold-light);
+      font-size: 0.8rem;
+      padding: 3px 14px;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    .closure-notice .sign {
+      font-size: 0.82rem;
+      color: rgba(245,245,240,0.5);
+      text-align: right;
+      margin-top: 10px;
+    }
+
+    /* ========== MASKED PAGES PREVIEW ========== */
+    .pages-preview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .page-card {
+      position: relative;
+      background: rgba(26,74,46,0.4);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 2px;
+      overflow: hidden;
+      text-decoration: none;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    .page-card-inner {
+      padding: 24px 18px;
+      opacity: 0.3;
+      filter: blur(1px);
+      pointer-events: none;
+      user-select: none;
+    }
+    .page-card-inner h3 {
+      font-family: 'Noto Serif JP', serif;
+      color: var(--gold-light);
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+    .page-card-inner p {
+      font-size: 0.78rem;
+      color: var(--white-dim);
+      line-height: 1.7;
+    }
+    .page-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(7,29,14,0.72);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px;
+    }
+    .page-card-overlay span {
+      display: inline-block;
+      background: var(--gold);
+      color: #0a1f12;
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      padding: 6px 14px;
+      line-height: 1.6;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--nav-bg);
+      border-top: 2px solid var(--gold);
+      padding: 40px 24px 24px;
+      text-align: center;
+    }
+    footer .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+    footer .footer-links a {
+      background: #000;
+      color: var(--gold);
+      text-decoration: none;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      border: 1px solid var(--gold);
+      font-family: 'Noto Serif JP', serif;
+    }
+    footer address {
+      font-style: normal;
+      font-size: 0.82rem;
+      color: rgba(245,245,240,0.5);
+      line-height: 2;
+    }
+    footer .copy {
+      margin-top: 20px;
+      font-size: 0.72rem;
+      color: rgba(245,245,240,0.3);
+      letter-spacing: 0.05em;
+    }
+
+    /* ========== DIVIDER ========== */
+    .gold-divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 36px auto;
+      max-width: 800px;
+    }
+
+    /* ========== SNS LINKS ========== */
+    .sns-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin: 12px 0 20px;
+    }
+    .sns-btn {
+      display: inline-block;
+      background: #000;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      padding: 8px 20px;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      transition: background 0.2s;
+    }
+    .sns-btn:hover {
+      background: var(--gold);
+      color: #000;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 600px) {
+      header { padding: 12px 16px; }
+      .renewal-announce { padding: 28px 20px; margin: 20px 12px; }
+      .kurotsu-section { margin: 0 12px 24px; }
+      .section-wrapper { padding: 0 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-logo">
+    TSURUTAIKE GOLF CENTER
+    <span>鶴田池ゴルフセンター</span>
+  </div>
+  <div class="header-tel">
+    お問合せ
+    <strong>072-273-6600</strong>
+  </div>
+</header>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <ul>
+    <li><a href="#" class="active">HOME</a></li>
+    <li><a class="disabled">施　設</a></li>
+    <li><a class="disabled">営業時間・料金</a></li>
+    <li><a class="disabled">スクール</a></li>
+    <li><a class="disabled">アクセス</a></li>
+  </ul>
+</nav>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-badge">RENEWAL OPEN</div>
+  <h1>2027年秋、鶴田池ゴルフセンター<br>リニューアルオープン予定</h1>
+  <p class="hero-sub">南大阪最大級のゴルフ練習場が、さらに進化して帰ってきます。<br>大きく生まれ変わる新しい鶴田池にご期待ください。</p>
+  <div class="hero-year">2027</div>
+</div>
+
+<!-- ===== リニューアル告知 (最重要) ===== -->
+<div style="max-width:900px; margin: 40px auto 0; padding: 0 20px;">
+  <div class="renewal-announce">
+    <div class="label">— GRAND RENEWAL OPEN —</div>
+    <h2>鶴田池ゴルフセンター<br>リニューアルオープン予定</h2>
+    <span class="year-tag">2027 AUTUMN</span>
+    <p>
+      耐震工事を経て、鶴田池ゴルフセンターは大きくリニューアルいたします。<br>
+      さらに快適で、さらに楽しい練習場として、皆様のご来場をお待ちしております。<br>
+      続報はInstagram・LINEにてお知らせいたします。ぜひフォローしてください！
+    </p>
+    <div class="sns-row" style="margin-top:24px;">
+      <a href="https://www.instagram.com/tsurutaike_golfcenter/" class="sns-btn" target="_blank">📷 Instagram</a>
+      <a href="https://lin.ee/6sRjwvOL" class="sns-btn" target="_blank">💬 LINE</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ガレージゴルフ黒鶴（最強調） ===== -->
+<div style="max-width:900px; margin: 0 auto 0; padding: 0 20px;">
+  <div class="kurotsu-section">
+    <div class="kurotsu-header">
+      <span class="now-open">● NOW OPEN</span>
+      <h2>ガレージゴルフ黒鶴<br><small style="font-size:0.65em; font-weight:400;">（当センター駐車場内）は現在も営業中！</small></h2>
+    </div>
+    <div class="kurotsu-body">
+      <div class="kurotsu-desc">
+        <p>
+          鶴田池ゴルフセンターは休業中ですが、<br>
+          <strong style="color:var(--gold-shine);">駐車場内のガレージゴルフ黒鶴は通常通り営業しています！</strong>
+        </p>
+        <p>
+          大きくて距離長めの室内練習場。<br>
+          全球コースボールを使用しており、本番さながらの打感を楽しめます。<br>
+          ぜひお気軽にお越しください。
+        </p>
+        <a href="tel:072-288-7511" class="tel-kurotsu">
+          電話予約受付中
+          <strong>072-288-7511</strong>
+        </a>
+      </div>
+      <div class="kurotsu-price">
+        <h3>料　金　（50分打ち放題）</h3>
+        <div class="price-row">
+          <span class="label">平日</span>
+          <span class="amount">¥1,210 <small style="font-size:0.75em;font-weight:400;">（税込）</small></span>
+        </div>
+        <div class="price-row">
+          <span class="label">土日祝</span>
+          <span class="amount">¥1,430 <small style="font-size:0.75em;font-weight:400;">（税込）</small></span>
+        </div>
+        <div class="open-hours">
+          営業時間：9:00 〜 21:00<br>
+          <span style="font-size:0.8em;opacity:0.7;">最終受付 20:00</span>
+        </div>
+        <p class="price-note">※1時間ごとの打ち放題制です。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="gold-divider">
+
+<!-- ===== 休業のお知らせ ===== -->
+<div class="section-wrapper">
+  <div class="section-title">休業のお知らせ</div>
+  <div class="closure-notice">
+    <span class="date-label">令和6年9月9日</span>
+    <p>
+      平素は鶴田池ゴルフセンターをご愛顧いただき、誠にありがとうございます。<br>
+      鶴田池の耐震工事に伴い、<strong style="color:var(--white);">令和6年9月15日（日）をもちまして通常営業を終了</strong>いたしました。<br>
+      9月16日より長期休業となります。
+    </p>
+    <p>
+      これまでの皆様のご愛顧に心より感謝申し上げます。<br>
+      <strong style="color:var(--gold-light);">2027年秋頃のリニューアルオープンに向けて</strong>、鋭意準備を進めてまいります。<br>
+      今後とも何卒よろしくお願いいたします。
+    </p>
+    <p class="sign">鶴田池ゴルフセンター</p>
+  </div>
+</div>
+
+<!-- ===== 他ページは休業中マスク ===== -->
+<div class="section-wrapper">
+  <div class="section-title">各ページのご案内</div>
+  <p style="font-size:0.85rem; color:rgba(245,245,240,0.5); margin-bottom:16px;">
+    ※現在休業中のため、各ページの内容は2027年のリニューアルオープン時に更新予定です。
+  </p>
+  <div class="pages-preview">
+
+    <div class="page-card">
+      <div class="page-card-inner">
+        <h3>施　設</h3>
+        <p>エントランス、打席、ゴルフ用品、アフターゴルフ工房など各施設のご案内です。</p>
+      </div>
+      <div class="page-card-overlay">
+        <span>2027年秋頃<br>リニューアル予定</span>
+      </div>
+    </div>
+
+    <div class="page-card">
+      <div class="page-card-inner">
+        <h3>営業時間・料金</h3>
+        <p>年中無休 5:00〜23:00<br>貸しボール・ICカードなどの詳細料金。</p>
+      </div>
+      <div class="page-card-overlay">
+        <span>2027年秋頃<br>リニューアル予定</span>
+      </div>
+    </div>
+
+    <div class="page-card">
+      <div class="page-card-inner">
+        <h3>スクール</h3>
+        <p>ダンロップゴルフスクールのレッスン情報、スクール生随時受付中。</p>
+      </div>
+      <div class="page-card-overlay">
+        <span>2027年秋頃<br>リニューアル予定</span>
+      </div>
+    </div>
+
+    <div class="page-card">
+      <div class="page-card-inner">
+        <h3>アクセス</h3>
+        <p>〒593-8312 堺市西区草部1630<br>駐車場100台完備。電車・バスでのアクセス方法。</p>
+      </div>
+      <div class="page-card-overlay">
+        <span>2027年秋頃<br>リニューアル予定</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="gold-divider">
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-links">
+    <a href="#">HOME</a>
+    <a style="color:rgba(201,168,76,0.4); border-color:rgba(201,168,76,0.2); pointer-events:none; cursor:not-allowed;">施　設</a>
+    <a style="color:rgba(201,168,76,0.4); border-color:rgba(201,168,76,0.2); pointer-events:none; cursor:not-allowed;">営業時間・料金</a>
+    <a style="color:rgba(201,168,76,0.4); border-color:rgba(201,168,76,0.2); pointer-events:none; cursor:not-allowed;">スクール</a>
+    <a style="color:rgba(201,168,76,0.4); border-color:rgba(201,168,76,0.2); pointer-events:none; cursor:not-allowed;">アクセス</a>
+  </div>
+  <address>
+    〒593-8312 堺市西区草部1630　鶴田池ゴルフセンター<br>
+    電話：072-273-6600
+  </address>
+  <p class="copy">Copyright © TSURUTAIKE GOLF CENTER All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
